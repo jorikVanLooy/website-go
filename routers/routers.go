@@ -34,9 +34,7 @@ func Routers(db string) *gin.Engine {
 	})
 
 	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
+		c.String(http.StatusOK, "pong")
 	})
 
 	router.GET("/", func(c *gin.Context) {
