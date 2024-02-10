@@ -44,11 +44,13 @@ func Routers(db string) *gin.Engine {
 		}
 		if userCookie != "0" {
 			c.HTML(http.StatusOK, "index.tmpl.html", gin.H{
-				"user": usr.GetUser(userCookie, db),
+				"title": "Welcome to chatty",
+				"user":  usr.GetUser(userCookie, db),
 			})
 		} else {
 			c.HTML(http.StatusOK, "index.tmpl.html", gin.H{
-				"user": "anonymous",
+				"title": "Welcome to chatty",
+				"user":  "anonymous",
 			})
 		}
 	})
@@ -74,10 +76,15 @@ func Routers(db string) *gin.Engine {
 
 	router.GET("/messages", func(c *gin.Context) {
 		if userCookie, err := c.Cookie("user"); err != nil {
-			c.HTML(http.StatusOK, "login.tmpl.html", gin.H{})
+
+			c.HTML(http.StatusOK, "login.tmpl.html", gin.H{
+				"title": "login",
+			})
 		} else {
+
 			c.HTML(http.StatusOK, "message.tmpl.html", gin.H{
-				"user": usr.GetUser(userCookie, db),
+				"title": "send your message",
+				"user":  usr.GetUser(userCookie, db),
 			})
 		}
 	})
