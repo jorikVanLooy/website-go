@@ -19,7 +19,7 @@
 							>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/messages">messages</a>
+							<a class="nav-link" href="/u/message">messages</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a
@@ -37,9 +37,16 @@
 							</div>
 						</li>
 					</ul>
+					{{if not .is_logged_in}}
 					<div class=" w-20" >
-						<a href="/login" class="btn btn-light me-3 w-auto">login</a>
-						<a href="/register" class="btn btn-light pl-5">register</a>
+						<a href="/u/login" class="btn btn-light me-3 w-auto">login</a>
+						<a href="/u/register" class="btn btn-light pl-5">register</a>
 					</div>
+					{{end}}
+					{{if .is_logged_in}}
+					<div class=" w-20" >
+						<a href="/u/logout" class="btn btn-light me-3 w-auto">logout</a>
+					</div>
+					{{end}}
 				</div>
 			</nav>
