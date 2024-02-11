@@ -4,8 +4,13 @@ go 1.20
 
 require (
 	github.com/gin-gonic/gin v1.9.1
+<<<<<<< HEAD
 	github.com/mattn/go-sqlite3 v1.14.22
 	github.com/stretchr/testify v1.8.4
+=======
+	github.com/go-playground/assert/v2 v2.2.0
+	github.com/mattn/go-sqlite3 v1.14.22
+>>>>>>> main
 )
 
 require (

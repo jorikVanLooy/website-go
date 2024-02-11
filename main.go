@@ -1,16 +1,18 @@
 package main
 
 import (
-	routers "website/routers"
-
+	"github.com/gin-gonic/gin"
 	_ "github.com/mattn/go-sqlite3"
 )
 
-const db string = "users.db"
-
 func main() {
 
-	router := routers.Routers(db)
+	router := gin.Default()
+
+	router.Static("/static", "./static")
+	router.LoadHTMLGlob("templates/*")
+
+	initRoutes(router)
 
 	router.Run()
 }
